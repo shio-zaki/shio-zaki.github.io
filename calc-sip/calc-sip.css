@@ -1,3 +1,7 @@
+html {
+    background-color: #191919;
+}
+
 body {
     margin: 0;
     background-color: #191919;
@@ -20,16 +24,14 @@ body {
 }
 
 #main {
-    height: calc(100vh - 40px);
     background-color: #191919;
 }
 
 #field {
     color: white;
     width: 90%;
-    height: 50%;
-    padding-top: 30px;
     margin: auto;
+    padding-top: 50px;
     background-color: #191919;
     /* height: 100%; */
 }
@@ -37,21 +39,32 @@ body {
     width: 80px;
 }
 
-
-#result {
-    height: 50%;
-    background-color: #191919;
-}
-#result table {
-    width: 90%;
+#field table {
     margin: auto;
 }
 
 #calc {
     width: 100%;
     margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 .result_table {
     border-radius: 30px;
+}
+
+#result1 td {
+    width: 50%;
+}
+
+#result2 td {
+    width: 33.33333%;
+}
+
+#result3 td {
+    width: 33.33333%;
+}
+
+#result4 td {
+    width: 50%;
 }

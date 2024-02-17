@@ -28,11 +28,11 @@
 
 
 
-            <label for="basic-pay">標準報酬月額 (基本給 + 各種手当)</label>
+            <label for="basic-pay">報酬月額 (基本給 + 各種手当)</label>
             <div class="input-group mb-1">
                 <select class="form-select w-5 p-3" id="mon_hour">
                     <option selected>基本給</option>
-                    <option value="1">時給</option>
+                    <option value="1">時給 (まだできてないから選んでも意味ない)</option>
                 </select>
                 <input type="number" class="form-control" name="basic-pay" id="salary" value="0">
                 <span class="input-group-text">円</span>
@@ -50,9 +50,9 @@
                         <option value="r5" selected>令和5年度 (2023/03/01~2024/02/29)</option>
                         <option value="r4">令和4年度 (2022/03/01~2023/02/29)</option>
                         <option value="r3">令和3年度 (2021/03/01~2022/02/29)</option>
-                        <option value="r2">令和2年度 (2020/03/01~2021/02/29)</option>
+                        <!-- <option value="r2">令和2年度 (2020/03/01~2021/02/29)</option>
                         <option value="h31">平成31年度 (2019/03/01~2020/02/29)</option>
-                        <option value="h30">平成30年度 (2018/03/01~2029/02/29)</option>
+                        <option value="h30">平成30年度 (2018/03/01~2029/02/29)</option> -->
                     </select>
                 </div>
 
@@ -121,49 +121,77 @@
             <button type="button" class="btn btn-success" id="calc">計算</button>
 
 
+            <table class="table table-hover table-borderless table-dark result_table mb-2" id="result1">
+                <tbody>
+                    <tr>
+                        <td>標準報酬月額</td>
+                        <td id="nomal_amount"></td>
+                    </tr>
+                    <tr>
+                        <td>標準報酬等級</td>
+                        <td id="nomal_rate"></td>
+                    </tr>
+                    <tr>
+                        <td>協会けんぽドキュメント</td>
+                        <td id="doc_url"></td>
+                    </tr>
+                </tbody>
+            </table>
 
-        </div>
-
-
-        <div id="result">
-            <table class="table table-hover table-borderless table-dark result_table">
+            <table class="table table-hover table-borderless table-dark result_table mb-2" id="result2">
                 <thead>
                     <tr>
                         <th scope="col">保険名</th>
-                        <th scope="col">保険料</th>
+                        <th scope="col">金額</th>
                         <th scope="col">保険料率</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>健康保険</td>
-                        <td id="health_pay">円</td>
-                        <td id="health_rate">%</td>
+                        <td id="health_pay"></td>
+                        <td id="health_rate"></td>
                     </tr>
                     <tr>
                         <td>介護保険</td>
-                        <td id="nursing_pay">円</td>
-                        <td id="nursing_rate">%</td>
+                        <td id="nursing_pay"></td>
+                        <td id="nursing_rate"></td>
                     </tr>
                     <tr>
                         <td>厚生年金保険</td>
-                        <td id="pension_pay">円</td>
-                        <td id="pension_rate">18.3%</td>
-                    </tr>
-                    <tr>
-                        <td>子ども・子育て拠出金</td>
-                        <td id="chird_pay">円</td>
-                        <td id="chird_rate">%</td>
+                        <td id="pension_pay"></td>
+                        <td id="pension_rate">18.3 % (固定)</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>合計</td>
-                        <td>円</td>
-                        <td>%</td>
+                        <td>小計</td>
+                        <td id="subtotal_pay"></td>
+                        <td id="subtotal_rate"></td>
                     </tr>
                 </tfoot>
             </table>
+
+            <table class="table table-hover table-borderless table-dark result_table mb-2" id="result3">
+                <tbody>
+                    <tr>
+                        <td>子ども・子育て拠出金</td>
+                        <td id="child_pay"></td>
+                        <td id="child_rate"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover table-borderless table-dark result_table mb-2" id="result4">
+                <tfoot>
+                    <tr>
+                        <td>合計</td>
+                        <td id="total_pay"></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p style="text-align: right; font-size: small;">*間違っていても責任取れません</p>
         </div>
     </div>
 
