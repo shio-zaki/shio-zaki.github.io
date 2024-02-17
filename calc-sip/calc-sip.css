@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    background-color: #191919;
+    height: 100%;
+}
+
+
+
+
+.header {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    background-color: #202020;
+}
+.header p {
+    margin: 0 20px;
+    line-height: 40px;
+    color: white;
+}
+
+#main {
+    height: calc(100vh - 40px);
+    background-color: #191919;
+}
+
+#field {
+    color: white;
+    width: 90%;
+    height: 50%;
+    padding-top: 30px;
+    margin: auto;
+    background-color: #191919;
+    /* height: 100%; */
+}
+.select-pref {
+    width: 80px;
+}
+
+
+#result {
+    height: 50%;
+    background-color: #191919;
+}
+#result table {
+    width: 90%;
+    margin: auto;
+}
+
+#calc {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.result_table {
+    border-radius: 30px;
+}
