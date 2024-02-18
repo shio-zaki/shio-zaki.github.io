@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時間外手当計算</title>
+    <link rel="stylesheet" href="calc-jikangai.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/9.0.0/decimal.min.js"></script>
+    </head>
+
+<body>
+    <div class="header">
+        <p>時間外手当計算</p>
+    </div>
+
+    <div id="main">
+        <div id="field">
+            <div class="row">
+                <div class="col">
+                    <label for="basic-pay">給与 (基本給 + 各種手当)</label>
+                    <div class="input-group mb-1">
+                        <select class="form-select w-5 p-3" id="mon_hour">
+                            <option value="0" selected>月給</option>
+                            <option value="1">時給</option>
+                        </select>
+                        <input type="number" class="form-control" name="basic-pay" id="salary" value="0">
+                        <span class="input-group-text">円</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="agreed_hour">所定労働時間</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="agreed_hour" id="agreed_hour" value="0">
+                        <span class="input-group-text w-5 p-3">時間</span>
+                        <input type="number" class="form-control" name="agreed_hour" id="agreed_minute" value="0">
+                        <span class="input-group-text">分</span>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label for="excess_hour">法定外労働時間</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="excess_hour" id="excess_hour" value="0">
+                        <span class="input-group-text">時間</span>
+                        <input type="number" class="form-control" name="excess_minute" id="excess_minute" value="0">
+                        <span class="input-group-text">分</span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="late_hour">法定外労働時間 (深夜)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="late_hour" id="late_hour" value="0">
+                        <span class="input-group-text">時間</span>
+                        <input type="number" class="form-control" name="late_minute" id="late_minute" value="0">
+                        <span class="input-group-text">分</span>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label for="holiday_hour">法定休日労働時間</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="holiday_hour" id="holiday_hour" value="0">
+                        <span class="input-group-text">時間</span>
+                        <input type="number" class="form-control" name="holiday_minute" id="holiday_minute" value="0">
+                        <span class="input-group-text">分</span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="holiday_late_hour">法定休日労働時間 (深夜)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="holiday_late_hour" id="holiday_late_hour" value="0">
+                        <span class="input-group-text">時間</span>
+                        <input type="number" class="form-control" name="holiday_late_minute" id="holiday_late_minute" value="0">
+                        <span class="input-group-text">分</span>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row magnif">
+                <div class="col">
+                    <label for="excess_rate_in">法定外労働割増率</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="excess_rate_in" id="excess_rate_in" value="1.25">
+                        <span class="input-group-text">倍</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="excess_rate_over_in">法定外労働割増率 (60h超過)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="excess_rate_over_in" id="excess_rate_over_in" value="1.5">
+                        <span class="input-group-text">倍</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="late_rate_in">法定外労働(深夜)割増率</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="late_rate_in" id="late_rate_in" value="1.5">
+                        <span class="input-group-text">倍</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row magnif">
+                <div class="col">
+                    <label for="late_rate_over_in">法定外労働(深夜)割増率 (60h超過)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="late_rate_over_in" id="late_rate_over_in" value="1.75">
+                        <span class="input-group-text">倍</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="holiday_rate_in">法定休日労働割増率</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="holiday_rate_in" id="holiday_rate_in" value="1.35">
+                        <span class="input-group-text">倍</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="holiday_late_rate_in">法定休日労働(深夜)割増率</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="holiday_late_rate_in" id="holiday_late_rate_in" value="1.6">
+                        <span class="input-group-text">倍</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <button type="button" class="btn btn-success" id="calc">計算</button>
+
+
+            <table class="table table-hover table-borderless table-dark result_table mb-2" id="result1">
+                <tbody>
+                    <tr>
+                        <td>時給換算 (少数第1位丸め)</td>
+                        <td id="wage_hour"></td>
+                    </tr>
+                    <tr>
+                        <td>分給換算 (少数第1位丸め)</td>
+                        <td id="wage_minute"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover table-borderless table-dark result_table mb-2" id="result2">
+                <thead>
+                    <tr>
+                        <th scope="col">手当</th>
+                        <th scope="col">金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>法定外労働</td>
+                        <td id="excess_pay"></td>
+                    </tr>
+                    <tr>
+                        <td>法定外労働 (深夜)</td>
+                        <td id="late_pay"></td>
+                    </tr>
+                    <tr>
+                        <td>法定休日労働</td>
+                        <td id="holiday_pay"></td>
+                    </tr>
+                    <tr>
+                        <td>法定休日労働 (深夜)</td>
+                        <td id="holiday_late_pay"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>合計</td>
+                        <td id="total_pay"></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p style="text-align: right; font-size: small;">*間違っていても責任取れません</p>
+        </div>
+    </div>
+
+
+
+
+    <script src="./select_observer.js"></script>
+    <script src="./calc-jikangai.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

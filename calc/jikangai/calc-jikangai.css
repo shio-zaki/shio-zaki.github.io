@@ -1,0 +1,63 @@
+html {
+    background-color: #191919;
+}
+
+body {
+    margin: 0;
+    background-color: #191919;
+    height: 100%;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    background-color: #202020;
+}
+.header p {
+    margin: 0 20px;
+    line-height: 40px;
+    color: white;
+}
+
+#main {
+    background-color: #191919;
+}
+
+#field {
+    color: white;
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+    background-color: #191919;
+}
+
+.magnif input {
+    background-color: rgb(145, 233, 255);
+}
+
+.magnif label {
+    font-size: 12px;
+}
+
+#field table {
+    margin: auto;
+}
+
+#calc {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.result_table {
+    border-radius: 30px;
+}
+
+#result1 td {
+    width: 50%;
+}
+
+#result2 td {
+    width: 50%;
+}
