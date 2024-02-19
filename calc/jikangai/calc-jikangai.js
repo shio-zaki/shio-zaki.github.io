@@ -23,6 +23,7 @@ document.querySelector("#calc").addEventListener("click", () => {
         const agreed_hour = document.querySelector("#agreed_hour").value
         const agreed_minute = document.querySelector("#agreed_minute").value
         const all_agreed_minute = (agreed_hour * 60) + agreed_minute
+        alert(all_agreed_minute)
         wage_minute = new Decimal(salary)
         wage_minute = wage_minute.div(all_agreed_minute).toNumber()
         document.querySelector("#wage_hour").innerText = (new Decimal(wage_minute).times(60).toNumber()).toFixed(2) + " 円/時間"
