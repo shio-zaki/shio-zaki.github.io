@@ -33,16 +33,16 @@
                             <option value="0" selected>月給</option>
                             <option value="1">時給</option>
                         </select>
-                        <input type="number" class="form-control" name="basic-pay" id="salary" value="0">
+                        <input type="number" class="form-control times" name="basic-pay" id="salary" value="0">
                         <span class="input-group-text">円</span>
                     </div>
                 </div>
                 <div class="col">
                     <label for="agreed_hour">所定労働時間</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="agreed_hour" id="agreed_hour" value="0">
+                        <input type="number" class="form-control times" name="agreed_hour" id="agreed_hour" value="0">
                         <span class="input-group-text w-5 p-3">時間</span>
-                        <input type="number" class="form-control" name="agreed_hour" id="agreed_minute" value="0">
+                        <input type="number" class="form-control times" name="agreed_hour" id="agreed_minute" value="0">
                         <span class="input-group-text">分</span>
                     </div>
                 </div>
@@ -54,9 +54,9 @@
                 <div class="col">
                     <label for="excess_hour">法定外労働時間</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="excess_hour" id="excess_hour" value="0">
+                        <input type="number" class="form-control times" name="excess_hour" id="excess_hour" value="0">
                         <span class="input-group-text">時間</span>
-                        <input type="number" class="form-control" name="excess_minute" id="excess_minute" value="0">
+                        <input type="number" class="form-control times" name="excess_minute" id="excess_minute" value="0">
                         <span class="input-group-text">分</span>
                     </div>
                 </div>
@@ -64,9 +64,9 @@
                 <div class="col">
                     <label for="late_hour">法定外労働時間 (深夜)</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="late_hour" id="late_hour" value="0">
+                        <input type="number" class="form-control times" name="late_hour" id="late_hour" value="0">
                         <span class="input-group-text">時間</span>
-                        <input type="number" class="form-control" name="late_minute" id="late_minute" value="0">
+                        <input type="number" class="form-control times" name="late_minute" id="late_minute" value="0">
                         <span class="input-group-text">分</span>
                     </div>
                 </div>
@@ -78,9 +78,9 @@
                 <div class="col">
                     <label for="holiday_hour">法定休日労働時間</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="holiday_hour" id="holiday_hour" value="0">
+                        <input type="number" class="form-control times" name="holiday_hour" id="holiday_hour" value="0">
                         <span class="input-group-text">時間</span>
-                        <input type="number" class="form-control" name="holiday_minute" id="holiday_minute" value="0">
+                        <input type="number" class="form-control times" name="holiday_minute" id="holiday_minute" value="0">
                         <span class="input-group-text">分</span>
                     </div>
                 </div>
@@ -88,9 +88,9 @@
                 <div class="col">
                     <label for="holiday_late_hour">法定休日労働時間 (深夜)</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="holiday_late_hour" id="holiday_late_hour" value="0">
+                        <input type="number" class="form-control times" name="holiday_late_hour" id="holiday_late_hour" value="0">
                         <span class="input-group-text">時間</span>
-                        <input type="number" class="form-control" name="holiday_late_minute" id="holiday_late_minute" value="0">
+                        <input type="number" class="form-control times" name="holiday_late_minute" id="holiday_late_minute" value="0">
                         <span class="input-group-text">分</span>
                     </div>
                 </div>
@@ -98,49 +98,46 @@
 
             <br>
 
-            <div class="row magnif">
+            <div class="row magnif row-cols-2">
                 <div class="col">
                     <label for="excess_rate_in">法定外労働割増率</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="excess_rate_in" id="excess_rate_in" value="1.25">
+                        <input type="number" class="form-control rate" name="excess_rate_in" id="excess_rate_in" value="1.25">
                         <span class="input-group-text">倍</span>
                     </div>
                 </div>
                 <div class="col">
                     <label for="excess_rate_over_in">法定外労働割増率 (60h超過)</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="excess_rate_over_in" id="excess_rate_over_in" value="1.5">
+                        <input type="number" class="form-control rate" name="excess_rate_over_in" id="excess_rate_over_in" value="1.5">
                         <span class="input-group-text">倍</span>
                     </div>
                 </div>
                 <div class="col">
                     <label for="late_rate_in">法定外労働(深夜)割増率</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="late_rate_in" id="late_rate_in" value="1.5">
+                        <input type="number" class="form-control rate" name="late_rate_in" id="late_rate_in" value="1.5">
                         <span class="input-group-text">倍</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="row magnif">
                 <div class="col">
                     <label for="late_rate_over_in">法定外労働(深夜)割増率 (60h超過)</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="late_rate_over_in" id="late_rate_over_in" value="1.75">
+                        <input type="number" class="form-control rate" name="late_rate_over_in" id="late_rate_over_in" value="1.75">
                         <span class="input-group-text">倍</span>
                     </div>
                 </div>
                 <div class="col">
                     <label for="holiday_rate_in">法定休日労働割増率</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="holiday_rate_in" id="holiday_rate_in" value="1.35">
+                        <input type="number" class="form-control rate" name="holiday_rate_in" id="holiday_rate_in" value="1.35">
                         <span class="input-group-text">倍</span>
                     </div>
                 </div>
                 <div class="col">
                     <label for="holiday_late_rate_in">法定休日労働(深夜)割増率</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" name="holiday_late_rate_in" id="holiday_late_rate_in" value="1.6">
+                        <input type="number" class="form-control rate" name="holiday_late_rate_in" id="holiday_late_rate_in" value="1.6">
                         <span class="input-group-text">倍</span>
                     </div>
                 </div>
@@ -205,7 +202,7 @@
 
 
 
-    <script src="./select_observer.js"></script>
+    <script src="./observer.js"></script>
     <script src="./calc-jikangai.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

@@ -61,3 +61,7 @@ body {
 #result2 td {
     width: 50%;
 }
+
+.hide_small {
+    display: none;
+}
