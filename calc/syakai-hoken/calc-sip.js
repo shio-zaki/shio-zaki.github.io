@@ -15,10 +15,9 @@ document.querySelector("#calc").addEventListener("click", () => {
 
 
         // けんぽドキュメント
-        const zeroume = year.charAt(0) + String(year.slice(1)).padStart(2, "0")
-        const url = `https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/${zeroume}/${year}ryougakuhyou3gatukara/`
-
-        document.querySelector("#doc_url").innerHTML = `<a href=${url} target="_blank">📄(リンク)</a>`
+        const j_kenpodoc = await getJson("./kenpoURL.json")
+        const url = j_kenpodoc[year][[pref]]
+        document.querySelector("#doc_url").innerHTML = `<a href=${url} target="_blank">📄(PDFリンク)</a>`
 
 
 

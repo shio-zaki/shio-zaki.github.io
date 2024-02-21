@@ -1,4 +1,4 @@
-document.querySelector("#old").addEventListener("blur", () => {
+document.querySelector("#salary").addEventListener("blur", () => {
     if (document.querySelector("#salary").value === "") {
         document.querySelector("#salary").value = "0"
     }
