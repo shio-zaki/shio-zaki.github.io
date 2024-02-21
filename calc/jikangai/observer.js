@@ -50,3 +50,28 @@ window.addEventListener("resize",() => {
         rate_input_group.classList.add("row-cols-2")
     }
 });
+
+
+
+
+legal_rate = {
+    0: 1.25,
+    1: 1.5,
+    2: 1.5,
+    3: 1.75,
+    4: 1.35,
+    5: 1.6
+}
+const rate_inputs = document.querySelectorAll(".rate")
+rate_inputs.forEach((rate_input, index) => {
+    rate_input.addEventListener("blur", () => {
+        if (rate_input.value === "") {
+            rate_input.value = legal_rate[index]
+            rate_input.removeAttribute("style")
+        } else if (rate_input.value < legal_rate[index] ) {
+            rate_input.style.backgroundColor = "rgb(255, 105, 130)"
+        } else {
+            rate_input.removeAttribute("style")
+        }
+    })
+})
