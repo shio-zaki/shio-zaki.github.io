@@ -16,9 +16,9 @@ document.querySelector("#calc").addEventListener("click", () => {
     // 分給・時給
     let wage_minute
     if (ishourly) {
-        document.querySelector("#wage_hour").innerText = salary + " 円/時間"
+        document.querySelector("#wage_hour").innerText = salary.toFixed(2) + " 円/時間"
         wage_minute = new Decimal(salary).div(60).toNumber()
-        document.querySelector("#wage_minute").innerText = wage_minute + " 円/分"
+        document.querySelector("#wage_minute").innerText = wage_minute.toFixed(2) + " 円/分"
     } else {
         const agreed_hour = document.querySelector("#agreed_hour").value
         const agreed_minute = document.querySelector("#agreed_minute").value
@@ -26,7 +26,7 @@ document.querySelector("#calc").addEventListener("click", () => {
         wage_minute = new Decimal(salary)
         wage_minute = wage_minute.div(all_agreed_minute).toNumber()
         document.querySelector("#wage_hour").innerText = (new Decimal(wage_minute).times(60).toNumber()).toFixed(2) + " 円/時間"
-        document.querySelector("#wage_minute").innerText = wage_minute + " 円/分"
+        document.querySelector("#wage_minute").innerText = wage_minute.toFixed(2) + " 円/分"
     }
 
     // 法定外労働時間(分)
@@ -89,6 +89,6 @@ document.querySelector("#calc").addEventListener("click", () => {
     document.querySelector("#holiday_late_pay").innerText = holiday_late_pay.toFixed(1) + " 円"
 
     // 合計
-    const total = new Decimal(excess_pay).add(late_pay).add(holiday_pay).add(holiday_late_pay).toNumber() + " 円"
+    const total = new Decimal(excess_pay).add(late_pay).add(holiday_pay).add(holiday_late_pay).toNumber().toFixed(2) + " 円"
     document.querySelector("#total_pay").innerText = total
 })
